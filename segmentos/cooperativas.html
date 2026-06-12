@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contabilidade para Cooperativas — Barros & Barros Contabilidade</title>
+<meta name="description" content="Contabilidade especializada para cooperativas em Pernambuco. Isenção de IRPJ e CSLL nos atos cooperativos. Barros & Barros Contabilidade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --navy-deep: #0e1a3d; --gold: #C9A227; --gold-light: #e0b83a; --gold-pale: rgba(201,162,39,0.1); --white: #fff; --text-muted: rgba(255,255,255,0.55); --text-light: rgba(255,255,255,0.85); --border: rgba(255,255,255,0.08); --border-gold: rgba(201,162,39,0.28); --card-bg: rgba(255,255,255,0.04); --card-hover: rgba(255,255,255,0.07); }
+html { scroll-behavior: smooth; }
+body { font-family: "DM Sans", sans-serif; background: var(--navy-deep); color: var(--white); overflow-x: hidden; }
+.bg-fixed { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px); background-size: 72px 72px; }
+.bg-orb { position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(27,45,107,0.5) 0%, transparent 65%); top: -200px; right: -200px; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(14,26,61,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+.logo-mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.bb { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 2.4rem; line-height: 1; }
+.bb .b1 { color: var(--gold); } .bb .b2 { color: var(--white); }
+.logo-div { width: 1px; height: 38px; background: var(--border-gold); }
+.logo-txt .name { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; line-height: 1.15; }
+.logo-txt .sub { font-size: 0.58rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--border-gold); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+/* NAV DROPDOWN */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+.nav-dropdown > a::after { content: '▾'; font-size: 0.65rem; transition: transform 0.2s; }
+.nav-dropdown:hover > a::after, .nav-dropdown.open > a::after { transform: rotate(180deg); }
+.dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(14,26,61,0.97); backdrop-filter: blur(20px); border: 1px solid rgba(201,162,39,0.28); border-radius: 10px; padding: 0.4rem; min-width: 210px; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; z-index: 200; }
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-menu a { display: block; padding: 0.55rem 1rem; border-radius: 6px; white-space: nowrap; background: transparent; }
+.dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: var(--white) !important; }
+.nav-cta { background: var(--gold) !important; color: var(--navy-deep) !important; font-weight: 500 !important; padding: 9px 20px; border-radius: 4px; }
+.page { position: relative; z-index: 1; }
+.hero { padding: 9rem 3rem 5rem; max-width: 1100px; margin: 0 auto; animation: fadeUp 0.8s ease 0.1s both; }
+.eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ""; display: block; width: 40px; height: 1px; background: var(--gold); }
+h1 { font-family: "Cormorant Garamond", serif; font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.25rem; max-width: 800px; }
+h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 680px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy-deep); font-size: 0.875rem; font-weight: 500; padding: 15px 28px; border-radius: 4px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.content-wrap { max-width: 1100px; margin: 0 auto; padding: 0 3rem 6rem; }
+.sec-label { font-size: 0.65rem; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
+.sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.intro-block { background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(27,45,107,0.2) 100%); border: 1px solid var(--border-gold); border-radius: 12px; padding: 2.5rem; margin-bottom: 3rem; }
+.intro-quote { font-family: "Cormorant Garamond", serif; font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-style: italic; font-weight: 400; line-height: 1.5; color: var(--white); margin-bottom: 1rem; }
+.intro-text { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 0.75rem; }
+.intro-text strong { color: var(--text-light); font-weight: 400; }
+.cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 2rem; }
+.info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem; transition: border-color 0.2s, background 0.2s; }
+.info-card:hover { border-color: var(--border-gold); background: var(--card-hover); }
+.ic-num { font-family: "Cormorant Garamond", serif; font-size: 3rem; font-weight: 700; color: rgba(201,162,39,0.15); line-height: 1; margin-bottom: 0.75rem; }
+.ic-nome { font-family: "Cormorant Garamond", serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; }
+.ic-text { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.ic-text strong { color: var(--text-light); font-weight: 400; }
+.atencao-box { background: var(--card-bg); border: 1px solid var(--border-gold); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+.atencao-label { font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+.atencao-text { font-size: 0.875rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.atencao-text strong { color: var(--text-light); font-weight: 400; }
+.outros-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 3rem; }
+.outro-seg { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s; display: block; }
+.outro-seg:hover { border-color: var(--border-gold); }
+.os-label { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+.os-nome { font-size: 0.9rem; color: var(--text-light); }
+.cta-section { background: linear-gradient(135deg, rgba(27,45,107,0.5) 0%, rgba(14,26,61,0.8) 100%); border: 1px solid var(--border-gold); border-radius: 14px; padding: 3rem; text-align: center; }
+.cta-title { font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text-light); font-size: 0.875rem; padding: 15px 28px; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s; margin-left: 1rem; }
+.btn-ghost:hover { border-color: var(--border-gold); }
+footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .hero { padding: 7rem 1.5rem 4rem; } .content-wrap { padding: 0 1.5rem 4rem; } .cards-grid { grid-template-columns: 1fr; } .outros-grid { grid-template-columns: 1fr 1fr; } footer { padding: 2rem 1.5rem; } }
+</style>
+</head>
+<body>
+<div class="bg-fixed"><div class="bg-grid"></div><div class="bg-orb"></div></div>
+<nav>
+  <a class="logo-mark" href="/"><div class="bb"><span class="b1">B</span><span class="b2">B</span></div><div class="logo-div"></div><div class="logo-txt"><div class="name">Barros<br>&amp; Barros</div><div class="sub">Contabilidade</div></div></a>
+  <div class="nav-links"><a href="/">Início</a><a href="/sobre">Sobre</a><a href="/servicos">Serviços</a><div class="nav-dropdown"><a href="/segmentos">Segmentos</a><div class="dropdown-menu"><a href="/segmentos/medicos">Médicos e Clínicas</a><a href="/segmentos/advogados">Advogados e OABs</a><a href="/segmentos/cooperativas">Cooperativas</a><a href="/segmentos/arquitetos">Arquitetos</a><a href="/segmentos/comercio">Comércio e Varejo</a><a href="/segmentos/prestadores">Prestadores de Serviço</a></div></div><a href="/blog">Blog</a><a href="/curso">Curso IA</a><a href="/contato" class="nav-cta">Fale conosco</a></div>
+</nav>
+<div class="page">
+  <div class="hero">
+    <p class="eyebrow">Segmento de atuação</p>
+    <h1>Cooperativa não é coisa do passado — é uma das estruturas mais <em>inteligentes</em> do ponto de vista tributário.</h1>
+    <p class="hero-sub">Isenção de IRPJ e CSLL. Distribuição de sobras sem tributação. Para grupos com objetivo comum, a cooperativa pode ser o melhor negócio que existe.</p>
+    <a class="btn-primary" href="https://wa.me/5581996876093?text=Olá,%20tenho%20interesse%20em%20contabilidade%20para%20cooperativa." target="_blank" rel="noopener">Quero saber mais sobre cooperativas</a>
+  </div>
+  <div class="content-wrap">
+    <div class="intro-block">
+      <p class="intro-quote">Se um grupo bem definido de pessoas está disposto a se organizar para economizar — a cooperativa pode ser o melhor negócio disponível no direito brasileiro.</p>
+      <p class="intro-text">As cooperativas existem no Brasil há mais de 40 anos como forma legalmente prevista de reunião de pessoas físicas com objetivos comuns. Tiveram seu auge entre as décadas de 70 e 90 — e por muito tempo foram esquecidas como opção estratégica. Mas quem conhece a estrutura sabe: <strong>cooperativa bem constituída e bem gerida ainda gera frutos reais para seus cooperados.</strong></p>
+    </div>
+    <p class="sec-label">O grande diferencial tributário</p>
+    <div class="cards-grid">
+      <div class="info-card"><div class="ic-num">01</div><p class="ic-nome">Isenção de IRPJ e CSLL</p><p class="ic-text">Diferente de empresas comuns, as cooperativas são <strong>isentas de IRPJ e CSLL</strong> sobre os chamados atos cooperativos — aquelas operações realizadas entre a cooperativa e seus próprios cooperados. Essa isenção, quando bem aproveitada, representa uma economia significativa e se traduz em maior retorno para quem faz parte.</p></div><div class="info-card"><div class="ic-num">02</div><p class="ic-nome">Atos cooperativos vs atos não cooperativos</p><p class="ic-text">A chave está em entender a distinção entre <strong>atos cooperativos e atos não cooperativos</strong> — cada um com sua tributação e suas nuances. Essa linha, quando mal compreendida, gera riscos fiscais sérios. Quando bem gerida, é onde está a vantagem real da estrutura cooperativista.</p></div>
+    </div>
+    <div class="atencao-box">
+      <p class="atencao-label">Para quem faz sentido</p>
+      <p class="atencao-text">Não é para qualquer situação. Mas quando encaixa, <strong>encaixa muito bem</strong>. Se você tem um grupo bem definido de pessoas com o mesmo objetivo — dispostas a se organizar para economizar e crescer juntas — a cooperativa pode ser a estrutura mais eficiente disponível.</p>
+    </div>
+    <p class="sec-label">Outros segmentos que atendemos</p>
+    <div class="outros-grid"><a class="outro-seg" href="/segmentos/medicos"><p class="os-label">Segmento</p><p class="os-nome">Médicos e Clínicas</p></a><a class="outro-seg" href="/segmentos/advogados"><p class="os-label">Segmento</p><p class="os-nome">Advogados e OABs</p></a><a class="outro-seg" href="/segmentos/arquitetos"><p class="os-label">Segmento</p><p class="os-nome">Arquitetos</p></a><a class="outro-seg" href="/segmentos/comercio"><p class="os-label">Segmento</p><p class="os-nome">Comércio e Varejo</p></a><a class="outro-seg" href="/segmentos/prestadores"><p class="os-label">Segmento</p><p class="os-nome">Prestadores de Serviço</p></a></div>
+    <div class="cta-section">
+      <h2 class="cta-title">A Barros &amp; Barros tem experiência com <em>cooperativas</em> em Pernambuco.</h2>
+      <p class="cta-sub">Desde a constituição até a gestão dos atos cooperativos. Fale com nossa equipe e entenda se a cooperativa é o caminho certo para o seu grupo.</p>
+      <a class="btn-primary" href="https://wa.me/5581996876093?text=Olá,%20quero%20entender%20melhor%20a%20tributação%20de%20cooperativas." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      <a class="btn-ghost" href="/contato">Outros contatos →</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p class="footer-copy">© 2026 Barros &amp; Barros Contabilidade · Limoeiro, Pernambuco</p>
+  <div class="footer-links"><a href="/">Início</a><a href="/servicos">Serviços</a><a href="/blog">Blog</a><a href="/politica-de-privacidade">Privacidade</a><a href="/contato">Contato</a></div>
+</footer>
+<script>
+document.querySelectorAll('.nav-dropdown').forEach(function(d){
+  d.querySelector(':scope > a').addEventListener('click',function(e){
+    e.preventDefault();
+    var open=d.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(x){x.classList.remove('open');});
+    if(!open) d.classList.add('open');
+  });
+  document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open');});
+});
+</script>
+</body>
+</html>

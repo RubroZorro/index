@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página não encontrada — Barros & Barros Contabilidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --navy-deep: #0e1a3d; --gold: #C9A227; --gold-light: #e0b83a; --gold-pale: rgba(201,162,39,0.1); --white: #fff; --text-muted: rgba(255,255,255,0.55); --border: rgba(255,255,255,0.08); --border-gold: rgba(201,162,39,0.28); }
+html, body { height: 100%; }
+body { font-family: 'DM Sans', sans-serif; background: var(--navy-deep); color: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; text-align: center; overflow-x: hidden; }
+.bg-fixed { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px); background-size: 72px 72px; }
+.bg-orb { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(27,45,107,0.45) 0%, transparent 65%); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.container { position: relative; z-index: 1; max-width: 520px; animation: fadeUp 0.8s ease both; }
+.num-404 { font-family: 'Cormorant Garamond', serif; font-size: clamp(6rem, 20vw, 12rem); font-weight: 700; line-height: 1; color: rgba(201,162,39,0.15); margin-bottom: -1rem; }
+.gold-line { width: 48px; height: 2px; background: var(--gold); margin: 0 auto 2rem; }
+.title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 600; margin-bottom: 1rem; }
+.title em { color: var(--gold); font-style: italic; }
+.subtitle { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; max-width: 380px; margin-left: auto; margin-right: auto; }
+.actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy-deep); font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 500; padding: 14px 28px; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
+.btn-primary:hover { background: var(--gold-light); }
+.links-row { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.link-item { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.link-item:hover { color: var(--gold); }
+.logo-wrap { margin-bottom: 3rem; display: flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; }
+.bb { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2.4rem; line-height: 1; }
+.bb .b1 { color: var(--gold); } .bb .b2 { color: var(--white); }
+.logo-div { width: 1px; height: 38px; background: var(--border-gold); }
+.logo-txt .name { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; line-height: 1.15; text-align: left; }
+.logo-txt .sub { font-size: 0.58rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--border-gold); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div class="bg-fixed"><div class="bg-grid"></div><div class="bg-orb"></div></div>
+<div class="container">
+  <a class="logo-wrap" href="/">
+    <div class="bb"><span class="b1">B</span><span class="b2">B</span></div>
+    <div class="logo-div"></div>
+    <div class="logo-txt"><div class="name">Barros<br>&amp; Barros</div><div class="sub">Contabilidade</div></div>
+  </a>
+  <div class="num-404">404</div>
+  <div class="gold-line"></div>
+  <h1 class="title">Página <em>não encontrada.</em></h1>
+  <p class="subtitle">O endereço que você acessou não existe ou foi movido. Mas a nossa equipe continua disponível para ajudar.</p>
+  <div class="actions">
+    <a class="btn-primary" href="/">Voltar para o início</a>
+    <div class="links-row">
+      <a class="link-item" href="/servicos">Serviços</a>
+      <a class="link-item" href="/segmentos">Segmentos</a>
+      <a class="link-item" href="/blog">Blog</a>
+      <a class="link-item" href="/contato">Contato</a>
+      <a class="link-item" href="https://wa.me/5581996876093" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

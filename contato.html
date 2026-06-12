@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Barros & Barros Contabilidade</title>
+<meta name="description" content="Entre em contato com a Barros & Barros Contabilidade. Atendemos em Recife, Zona da Mata e Agreste pernambucano.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1B2D6B;
+  --navy-deep: #111e4a;
+  --navy-mid: #162259;
+  --gold: #C9A227;
+  --gold-light: #e0b83a;
+  --gold-pale: rgba(201,162,39,0.12);
+  --white: #ffffff;
+  --text-muted: rgba(255,255,255,0.55);
+  --text-light: rgba(255,255,255,0.8);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(201,162,39,0.25);
+  --card-bg: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,255,255,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy-deep);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* BG */
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,162,39,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.bg-glow-1 {
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,45,107,0.6) 0%, transparent 65%);
+  top: -200px; right: -200px;
+}
+.bg-glow-2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,162,39,0.07) 0%, transparent 65%);
+  bottom: 0; left: -100px;
+}
+
+/* LAYOUT */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+/* HEADER */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 4rem;
+  animation: fadeUp 0.8s ease both;
+}
+.logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.bb { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2.8rem; line-height: 1; }
+.bb .b1 { color: var(--gold); }
+.bb .b2 { color: var(--white); }
+.logo-div { width: 1px; height: 42px; background: var(--border-gold); }
+.logo-txt .name { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; line-height: 1.1; }
+.logo-txt .sub { font-size: 0.62rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--border-gold); }
+
+/* HERO */
+.hero { margin-bottom: 4rem; animation: fadeUp 0.8s ease 0.1s both; }
+.eyebrow { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
+h1 em { color: var(--gold); font-style: normal; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--text-muted); max-width: 520px; line-height: 1.7; }
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* CARDS */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  animation: fadeUp 0.8s ease both;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.card:hover { background: var(--card-hover); border-color: var(--border-gold); transform: translateY(-2px); }
+.card-link { cursor: pointer; }
+
+.card-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  background: var(--gold-pale);
+  border: 1px solid var(--border-gold);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.card-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+
+.card-label { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+.card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
+.card-value { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; line-height: 1.6; }
+.card-value strong { color: var(--text-light); font-weight: 400; }
+
+/* CTA WHATSAPP GRANDE */
+.card-wa {
+  background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(201,162,39,0.05) 100%);
+  border-color: var(--border-gold);
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) { .card-wa { grid-column: span 1; } }
+
+.wa-text .card-label { margin-bottom: 6px; }
+.wa-text .card-title { font-size: 1.6rem; margin-bottom: 4px; }
+.wa-text .card-value { font-size: 0.85rem; }
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.btn-wa:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-wa svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+/* EMAILS */
+.emails-section { animation: fadeUp 0.8s ease 0.4s both; margin-bottom: 1.5rem; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 12px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.email-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (max-width: 600px) { .email-grid { grid-template-columns: 1fr; } }
+
+.email-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.email-item:hover { background: var(--card-hover); border-color: var(--border-gold); }
+.email-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; opacity: 0.7; }
+.email-info { flex: 1; min-width: 0; }
+.email-dept { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 2px; }
+.email-addr { font-size: 0.82rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ENDEREÇO */
+.address-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  animation: fadeUp 0.8s ease 0.5s both;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.address-info { flex: 1; min-width: 200px; }
+.address-label { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+.address-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
+.address-text { font-size: 0.875rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+.address-regions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.region-tag { font-size: 0.7rem; letter-spacing: 0.05em; color: var(--gold); background: var(--gold-pale); border: 1px solid var(--border-gold); border-radius: 20px; padding: 3px 10px; }
+
+/* FOOTER NOTE */
+.footer-note { margin-top: 3rem; text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.2); animation: fadeUp 0.8s ease 0.6s both; }
+
+/* ANIM */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<div class="bg-wrap">
+  <div class="bg-grid"></div>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <a class="logo-mark" href="/">
+      <div class="bb"><span class="b1">B</span><span class="b2">B</span></div>
+      <div class="logo-div"></div>
+      <div class="logo-txt">
+        <div class="name">Barros<br>&amp; Barros</div>
+        <div class="sub">Contabilidade</div>
+      </div>
+    </a>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">Fale conosco</p>
+    <h1>Cada empresa tem<br>uma <em>realidade única.</em></h1>
+    <p class="hero-sub">Vamos entender a sua. Entre em contato e descubra como a Barros &amp; Barros pode ajudar seu negócio a crescer com inteligência tributária.</p>
+  </div>
+
+  <!-- CARDS PRINCIPAIS -->
+  <div class="contact-grid">
+
+    <!-- WHATSAPP ESCRITÓRIO -->
+    <div class="card card-wa">
+      <div class="wa-text">
+        <p class="card-label">WhatsApp principal</p>
+        <p class="card-title">Barros &amp; Barros Contabilidade</p>
+        <p class="card-value">(81) 99687-6093 · Atendimento geral, orçamentos e dúvidas</p>
+      </div>
+      <a class="btn-wa" href="https://wa.me/5581996876093?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20minha%20empresa." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.088 1.508 5.814L0 24l6.336-1.488A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.36-.214-3.727.977.995-3.635-.234-.374A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+        </svg>
+        Iniciar conversa
+      </a>
+    </div>
+
+    <!-- EWERTON -->
+    <a class="card card-link" href="https://wa.me/5581999876093?text=Olá%20Ewerton,%20vim%20pelo%20site%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <p class="card-label">Sócio e Responsável Técnico</p>
+      <p class="card-title">Ewerton Barros</p>
+      <p class="card-value"><strong>(81) 99987-6093</strong><br>Planejamento tributário e consultoria</p>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a class="card card-link" href="https://instagram.com/barrosebarroscontabilidade" target="_blank" rel="noopener">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="#C9A227" stroke="none"/></svg>
+      </div>
+      <p class="card-label">Redes sociais</p>
+      <p class="card-title">Instagram</p>
+      <p class="card-value">@barrosebarroscontabilidade<br><strong>Conteúdo, dicas e novidades fiscais</strong></p>
+    </a>
+
+  </div>
+
+  <!-- EMAILS -->
+  <div class="emails-section">
+    <p class="section-title">E-mails por setor</p>
+    <div class="email-grid">
+      <a class="email-item" href="mailto:contato@barrosebarroscontabilidade.com.br">
+        <div class="email-dot"></div>
+        <div class="email-info">
+          <p class="email-dept">Contato geral</p>
+          <p class="email-addr">contato@barrosebarroscontabilidade.com.br</p>
+        </div>
+      </a>
+      <a class="email-item" href="mailto:fiscal@barrosebarroscontabilidade.com.br">
+        <div class="email-dot"></div>
+        <div class="email-info">
+          <p class="email-dept">Setor Fiscal</p>
+          <p class="email-addr">fiscal@barrosebarroscontabilidade.com.br</p>
+        </div>
+      </a>
+      <a class="email-item" href="mailto:financeiro@barrosebarroscontabilidade.com.br">
+        <div class="email-dot"></div>
+        <div class="email-info">
+          <p class="email-dept">Setor Financeiro</p>
+          <p class="email-addr">financeiro@barrosebarroscontabilidade.com.br</p>
+        </div>
+      </a>
+      <a class="email-item" href="mailto:rh@barrosebarroscontabilidade.com.br">
+        <div class="email-dot"></div>
+        <div class="email-info">
+          <p class="email-dept">Setor de RH</p>
+          <p class="email-addr">rh@barrosebarroscontabilidade.com.br</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ENDEREÇO -->
+  <div class="address-card">
+    <div class="address-info">
+      <p class="address-label">Matriz</p>
+      <p class="address-name">Limoeiro — Pernambuco</p>
+      <p class="address-text">Estrutura própria com sala de reunião,<br>sala de operação e equipe completa.</p>
+      <div class="address-regions">
+        <span class="region-tag">Recife</span>
+        <span class="region-tag">Zona da Mata</span>
+        <span class="region-tag">Agreste</span>
+        <span class="region-tag">Atendimento remoto</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-note">© 2026 Barros &amp; Barros Contabilidade · barrosebarroscontabilidade.com.br</p>
+
+</div>
+
+</body>
+</html>

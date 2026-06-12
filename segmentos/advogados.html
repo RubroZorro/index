@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contabilidade para Advogados e OABs — Barros & Barros</title>
+<meta name="description" content="Contabilidade especializada para advogados em Recife e Pernambuco. Saia dos 20%+ de IRPF e estruture sua sociedade advocatícia com alíquotas reduzidas no Simples Nacional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --navy-deep: #0e1a3d; --gold: #C9A227; --gold-light: #e0b83a; --gold-pale: rgba(201,162,39,0.1); --white: #fff; --text-muted: rgba(255,255,255,0.55); --text-light: rgba(255,255,255,0.85); --border: rgba(255,255,255,0.08); --border-gold: rgba(201,162,39,0.28); --card-bg: rgba(255,255,255,0.04); --card-hover: rgba(255,255,255,0.07); }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--navy-deep); color: var(--white); overflow-x: hidden; }
+.bg-fixed { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px); background-size: 72px 72px; }
+.bg-orb { position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(27,45,107,0.5) 0%, transparent 65%); top: -200px; right: -200px; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(14,26,61,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+.logo-mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.bb { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2.4rem; line-height: 1; }
+.bb .b1 { color: var(--gold); } .bb .b2 { color: var(--white); }
+.logo-div { width: 1px; height: 38px; background: var(--border-gold); }
+.logo-txt .name { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; line-height: 1.15; }
+.logo-txt .sub { font-size: 0.58rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--border-gold); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+/* NAV DROPDOWN */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+.nav-dropdown > a::after { content: '▾'; font-size: 0.65rem; transition: transform 0.2s; }
+.nav-dropdown:hover > a::after, .nav-dropdown.open > a::after { transform: rotate(180deg); }
+.dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(14,26,61,0.97); backdrop-filter: blur(20px); border: 1px solid rgba(201,162,39,0.28); border-radius: 10px; padding: 0.4rem; min-width: 210px; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; z-index: 200; }
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-menu a { display: block; padding: 0.55rem 1rem; border-radius: 6px; white-space: nowrap; background: transparent; }
+.dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: var(--white) !important; }
+.nav-cta { background: var(--gold) !important; color: var(--navy-deep) !important; font-weight: 500 !important; padding: 9px 20px; border-radius: 4px; }
+.page { position: relative; z-index: 1; }
+.hero { padding: 9rem 3rem 5rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; animation: fadeUp 0.8s ease 0.1s both; }
+.eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.25rem; }
+h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy-deep); font-size: 0.875rem; font-weight: 500; padding: 15px 28px; border-radius: 4px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.aliquota-box { background: linear-gradient(135deg, rgba(201,162,39,0.12) 0%, rgba(27,45,107,0.3) 100%); border: 1px solid var(--border-gold); border-radius: 14px; padding: 2rem; text-align: center; }
+.aliquota-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.aliquota-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.05em; }
+.aliquota-vs { font-size: 0.7rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; margin: 1rem 0; }
+.aliquota-num2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.3); line-height: 1; }
+.aliquota-label2 { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin-top: 4px; }
+.content-wrap { max-width: 1100px; margin: 0 auto; padding: 0 3rem 6rem; }
+.sec-label { font-size: 0.65rem; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.intro-block { background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(27,45,107,0.2) 100%); border: 1px solid var(--border-gold); border-radius: 12px; padding: 2.5rem; margin-bottom: 3rem; }
+.intro-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-style: italic; font-weight: 400; line-height: 1.5; color: var(--white); margin-bottom: 1rem; }
+.intro-text { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.9; }
+.intro-text strong { color: var(--text-light); font-weight: 400; }
+.cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 3rem; }
+.info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem; transition: border-color 0.2s, background 0.2s; }
+.info-card:hover { border-color: var(--border-gold); background: var(--card-hover); }
+.ic-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: rgba(201,162,39,0.15); line-height: 1; margin-bottom: 0.75rem; }
+.ic-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; }
+.ic-text { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.ic-text strong { color: var(--text-light); font-weight: 400; }
+.atencao-box { background: var(--card-bg); border: 1px solid var(--border-gold); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+.atencao-label { font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+.atencao-text { font-size: 0.875rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.atencao-text strong { color: var(--text-light); font-weight: 400; }
+.outros-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 3rem; }
+.outro-seg { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s; display: block; }
+.outro-seg:hover { border-color: var(--border-gold); }
+.os-label { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+.os-nome { font-size: 0.9rem; color: var(--text-light); }
+.cta-section { background: linear-gradient(135deg, rgba(27,45,107,0.5) 0%, rgba(14,26,61,0.8) 100%); border: 1px solid var(--border-gold); border-radius: 14px; padding: 3rem; text-align: center; }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text-light); font-size: 0.875rem; padding: 15px 28px; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s; margin-left: 1rem; }
+.btn-ghost:hover { border-color: var(--border-gold); }
+footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 2rem; } .content-wrap { padding: 0 1.5rem 4rem; } .cards-grid { grid-template-columns: 1fr; } .outros-grid { grid-template-columns: 1fr 1fr; } footer { padding: 2rem 1.5rem; } }
+</style>
+</head>
+<body>
+<div class="bg-fixed"><div class="bg-grid"></div><div class="bg-orb"></div></div>
+<nav>
+  <a class="logo-mark" href="/"><div class="bb"><span class="b1">B</span><span class="b2">B</span></div><div class="logo-div"></div><div class="logo-txt"><div class="name">Barros<br>&amp; Barros</div><div class="sub">Contabilidade</div></div></a>
+  <div class="nav-links"><a href="/">Início</a><a href="/sobre">Sobre</a><a href="/servicos">Serviços</a><div class="nav-dropdown"><a href="/segmentos">Segmentos</a><div class="dropdown-menu"><a href="/segmentos/medicos">Médicos e Clínicas</a><a href="/segmentos/advogados">Advogados e OABs</a><a href="/segmentos/cooperativas">Cooperativas</a><a href="/segmentos/arquitetos">Arquitetos</a><a href="/segmentos/comercio">Comércio e Varejo</a><a href="/segmentos/prestadores">Prestadores de Serviço</a></div></div><a href="/blog">Blog</a><a href="/curso">Curso IA</a><a href="/contato" class="nav-cta">Fale conosco</a></div>
+</nav>
+<div class="page">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Segmento de atuação</p>
+      <h1>Você sabia que pode estar pagando mais de <em>20% de imposto</em> sem precisar?</h1>
+      <p class="hero-sub">Muitos advogados ainda recebem honorários diretamente no CPF — e pagam caro por isso. Existe um caminho legal e acessível para mudar essa realidade.</p>
+      <a class="btn-primary" href="https://wa.me/5581996876093?text=Olá,%20sou%20advogado%20e%20gostaria%20de%20analisar%20minha%20tributação." target="_blank" rel="noopener">Quero reduzir minha carga tributária</a>
+    </div>
+    <div class="aliquota-box">
+      <div class="aliquota-num">27,5%</div>
+      <p class="aliquota-label">IRPF no CPF — tabela progressiva</p>
+      <p class="aliquota-vs">vs</p>
+      <div class="aliquota-num2">Simples</div>
+      <p class="aliquota-label2">Alíquota reduzida via sociedade advocatícia</p>
+    </div>
+  </div>
+  <div class="content-wrap">
+    <div class="intro-block">
+      <p class="intro-quote">"A advocacia é uma área historicamente reprimida — e vem aos poucos sendo mais explorada."</p>
+      <p class="intro-text">Quando os honorários caem direto no CPF, o advogado fica sujeito à tabela progressiva do Imposto de Renda Pessoa Física. Dependendo do volume de honorários, isso significa <strong>20%, 22,5% ou até 27,5%</strong> indo direto para o fisco — todo mês, todo ano. A solução está na constituição de uma sociedade de advogados.</p>
+    </div>
+    <p class="sec-label">Como estruturar a tributação corretamente</p>
+    <div class="cards-grid">
+      <div class="info-card">
+        <div class="ic-num">01</div>
+        <p class="ic-nome">Sociedade Advocatícia</p>
+        <p class="ic-text">Uma sociedade regularmente constituída enquadra-se no <strong>Anexo IV do Simples Nacional</strong>, com alíquotas que começam bem abaixo do que a maioria dos advogados paga hoje no CPF. A diferença pode representar uma economia expressiva — às vezes o equivalente a vários meses de honorários por ano.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-num">02</div>
+        <p class="ic-nome">Regras da OAB</p>
+        <p class="ic-text">O processo de abertura de uma sociedade advocatícia tem <strong>regras específicas da OAB</strong> e exige atenção nos detalhes da constituição. Fazer errado pode gerar problemas tanto na OAB quanto na Receita Federal. Fazemos esse processo do jeito certo.</p>
+      </div>
+    </div>
+    <div class="atencao-box">
+      <p class="atencao-label">💡 Além da redução tributária</p>
+      <p class="atencao-text">A PJ traz <strong>organização financeira</strong>, facilidade na emissão de notas fiscais e uma estrutura mais profissional para crescer. Se você ainda recebe honorários no CPF, vale a pena conversar com quem conhece as regras da advocacia.</p>
+    </div>
+    <p class="sec-label">Outros segmentos que atendemos</p>
+    <div class="outros-grid">
+      <a class="outro-seg" href="/segmentos/medicos"><p class="os-label">Segmento</p><p class="os-nome">Médicos e Clínicas</p></a>
+      <a class="outro-seg" href="/segmentos/cooperativas"><p class="os-label">Segmento</p><p class="os-nome">Cooperativas</p></a>
+      <a class="outro-seg" href="/segmentos/arquitetos"><p class="os-label">Segmento</p><p class="os-nome">Arquitetos</p></a>
+      <a class="outro-seg" href="/segmentos/comercio"><p class="os-label">Segmento</p><p class="os-nome">Comércio e Varejo</p></a>
+      <a class="outro-seg" href="/segmentos/prestadores"><p class="os-label">Segmento</p><p class="os-nome">Prestadores de Serviço</p></a>
+    </div>
+    <div class="cta-section">
+      <h2 class="cta-title">Ainda recebe honorários <em>no CPF?</em></h2>
+      <p class="cta-sub">A Barros &amp; Barros conhece as regras da advocacia — e sabe como estruturar isso do jeito certo. Vamos analisar seu caso sem compromisso.</p>
+      <a class="btn-primary" href="https://wa.me/5581996876093?text=Olá,%20sou%20advogado%20e%20quero%20estruturar%20minha%20sociedade%20advocatícia." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      <a class="btn-ghost" href="/contato">Outros contatos →</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p class="footer-copy">© 2026 Barros &amp; Barros Contabilidade · Limoeiro, Pernambuco</p>
+  <div class="footer-links"><a href="/">Início</a><a href="/servicos">Serviços</a><a href="/blog">Blog</a><a href="/politica-de-privacidade">Privacidade</a><a href="/contato">Contato</a></div>
+</footer>
+<script>
+document.querySelectorAll('.nav-dropdown').forEach(function(d){
+  d.querySelector(':scope > a').addEventListener('click',function(e){
+    e.preventDefault();
+    var open=d.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(x){x.classList.remove('open');});
+    if(!open) d.classList.add('open');
+  });
+  document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open');});
+});
+</script>
+</body>
+</html>
