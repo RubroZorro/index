@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviços — Barros & Barros Contabilidade</title>
+<meta name="description" content="Planejamento tributário, Simples Nacional, Lucro Presumido, Lucro Real, Recuperação de Créditos e mais. Contabilidade estratégica em Pernambuco.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy-deep: #0e1a3d;
+  --navy: #1B2D6B;
+  --gold: #C9A227;
+  --gold-light: #e0b83a;
+  --gold-pale: rgba(201,162,39,0.1);
+  --white: #ffffff;
+  --text-muted: rgba(255,255,255,0.5);
+  --text-light: rgba(255,255,255,0.8);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(201,162,39,0.28);
+  --card-bg: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,255,255,0.07);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--navy-deep); color: var(--white); overflow-x: hidden; }
+
+/* BG */
+.bg-fixed { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px); background-size: 72px 72px; }
+.bg-orb-1 { position: absolute; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(27,45,107,0.5) 0%, transparent 65%); top: -300px; right: -200px; }
+.bg-orb-2 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,0.05) 0%, transparent 65%); bottom: 20%; left: -150px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(14,26,61,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.logo-mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.bb { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2.4rem; line-height: 1; }
+.bb .b1 { color: var(--gold); }
+.bb .b2 { color: var(--white); }
+.logo-div { width: 1px; height: 38px; background: var(--border-gold); }
+.logo-txt .name { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; line-height: 1.15; }
+.logo-txt .sub { font-size: 0.58rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--border-gold); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold) !important; color: var(--navy-deep) !important; font-weight: 500 !important; padding: 9px 20px; border-radius: 4px; }
+.nav-cta:hover { background: var(--gold-light) !important; }
+/* NAV DROPDOWN */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+.nav-dropdown > a::after { content: '▾'; font-size: 0.65rem; transition: transform 0.2s; }
+.nav-dropdown:hover > a::after, .nav-dropdown.open > a::after { transform: rotate(180deg); }
+.dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(14,26,61,0.97); backdrop-filter: blur(20px); border: 1px solid rgba(201,162,39,0.28); border-radius: 10px; padding: 0.4rem; min-width: 210px; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; z-index: 200; }
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-menu a { display: block; padding: 0.55rem 1rem; border-radius: 6px; white-space: nowrap; background: transparent; }
+.dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: var(--white) !important; }
+
+/* PAGE */
+.page { position: relative; z-index: 1; }
+
+/* HERO */
+.hero { padding: 9rem 3rem 5rem; max-width: 1100px; margin: 0 auto; animation: fadeUp 0.8s ease 0.1s both; }
+.eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.1; margin-bottom: 1.25rem; max-width: 700px; }
+h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--text-muted); max-width: 560px; line-height: 1.8; }
+
+/* BANNER REFORMA TRIBUTÁRIA */
+.reforma-banner { max-width: 1100px; margin: 0 auto; padding: 0 3rem 4rem; animation: fadeUp 0.8s ease 0.2s both; }
+.reforma-inner {
+  background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(27,45,107,0.3) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  padding: 1.25rem 1.75rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.reforma-label { font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; white-space: nowrap; }
+.reforma-text { font-size: 0.875rem; color: var(--text-light); font-weight: 300; line-height: 1.6; }
+.reforma-text strong { color: var(--white); font-weight: 400; }
+
+/* SEÇÃO LABEL */
+.sec-wrap { max-width: 1100px; margin: 0 auto; padding: 0 3rem 5rem; }
+.sec-label { font-size: 0.65rem; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* CARD DESTAQUE — planejamento */
+.card-destaque {
+  background: linear-gradient(135deg, rgba(27,45,107,0.7) 0%, rgba(14,26,61,0.9) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative; overflow: hidden;
+  animation: fadeUp 0.8s ease 0.25s both;
+  transition: border-color 0.2s;
+}
+.card-destaque:hover { border-color: var(--gold); }
+.card-destaque::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.cd-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.cd-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--gold-pale); border: 1px solid var(--border-gold); border-radius: 20px; padding: 4px 14px; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; white-space: nowrap; }
+.cd-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+.cd-title em { color: var(--gold); font-style: normal; }
+.cd-text { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.9; max-width: 700px; }
+.cd-text strong { color: var(--text-light); font-weight: 400; }
+.cd-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 1.5rem; color: var(--gold); font-size: 0.8rem; letter-spacing: 0.06em; text-decoration: none; transition: gap 0.2s; }
+.cd-cta:hover { gap: 12px; }
+
+/* GRID REGIMES */
+.regimes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1rem; }
+.regime-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.75rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  animation: fadeUp 0.8s ease both;
+  cursor: default;
+}
+.regime-card:hover { background: var(--card-hover); border-color: var(--border-gold); transform: translateY(-2px); }
+.rc-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 700; color: rgba(201,162,39,0.12); line-height: 1; margin-bottom: 0.75rem; transition: color 0.2s; }
+.regime-card:hover .rc-num { color: rgba(201,162,39,0.25); }
+.rc-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.2; }
+.rc-text { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.rc-text strong { color: var(--text-light); font-weight: 400; }
+.rc-tag { display: inline-block; margin-top: 1rem; font-size: 0.65rem; letter-spacing: 0.08em; color: var(--gold); background: var(--gold-pale); border: 1px solid var(--border-gold); border-radius: 20px; padding: 3px 10px; }
+
+/* OUTROS SERVIÇOS */
+.outros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.outro-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.75rem;
+  display: flex; gap: 1.25rem;
+  transition: background 0.2s, border-color 0.2s;
+  animation: fadeUp 0.8s ease both;
+}
+.outro-card:hover { background: var(--card-hover); border-color: var(--border-gold); }
+.oc-linha { width: 2px; background: linear-gradient(180deg, var(--gold) 0%, transparent 100%); border-radius: 2px; flex-shrink: 0; }
+.oc-body { flex: 1; }
+.oc-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+.oc-text { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.oc-text strong { color: var(--text-light); font-weight: 400; }
+
+/* PESSOA FÍSICA */
+.pf-section {
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 3rem;
+}
+.pf-inner { max-width: 1100px; margin: 0 auto; }
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 2rem; }
+.pf-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.75rem;
+  display: flex; gap: 1.25rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pf-card:hover { border-color: var(--border-gold); background: var(--card-hover); }
+.pf-linha { width: 2px; background: linear-gradient(180deg, var(--gold) 0%, transparent 100%); border-radius: 2px; flex-shrink: 0; }
+.pf-body .pf-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+.pf-body .pf-text { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.pf-body .pf-text strong { color: var(--text-light); font-weight: 400; }
+
+/* CTA */
+.cta-section { padding: 7rem 3rem; text-align: center; background: linear-gradient(180deg, transparent, rgba(201,162,39,0.05)); }
+.cta-inner { max-width: 580px; margin: 0 auto; }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; }
+.cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy-deep); font-size: 0.875rem; font-weight: 500; padding: 15px 28px; border-radius: 4px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text-light); font-size: 0.875rem; padding: 15px 28px; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s; }
+.btn-ghost:hover { border-color: var(--border-gold); }
+
+/* FOOTER */
+footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* ANIMS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.regime-card:nth-child(1) { animation-delay: 0.3s; }
+.regime-card:nth-child(2) { animation-delay: 0.38s; }
+.regime-card:nth-child(3) { animation-delay: 0.46s; }
+.outro-card:nth-child(1) { animation-delay: 0.3s; }
+.outro-card:nth-child(2) { animation-delay: 0.38s; }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero, .reforma-banner, .sec-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .regimes-grid { grid-template-columns: 1fr; }
+  .outros-grid { grid-template-columns: 1fr; }
+  .pf-section { padding: 4rem 1.5rem; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 5rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-fixed">
+  <div class="bg-grid"></div>
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-mark" href="/">
+    <div class="bb"><span class="b1">B</span><span class="b2">B</span></div>
+    <div class="logo-div"></div>
+    <div class="logo-txt">
+      <div class="name">Barros<br>&amp; Barros</div>
+      <div class="sub">Contabilidade</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="/">Início</a>
+    <a href="/sobre">Sobre</a>
+    <a href="/servicos" class="active">Serviços</a>
+    <div class="nav-dropdown"><a href="/segmentos">Segmentos</a><div class="dropdown-menu"><a href="/segmentos/medicos">Médicos e Clínicas</a><a href="/segmentos/advogados">Advogados e OABs</a><a href="/segmentos/cooperativas">Cooperativas</a><a href="/segmentos/arquitetos">Arquitetos</a><a href="/segmentos/comercio">Comércio e Varejo</a><a href="/segmentos/prestadores">Prestadores de Serviço</a></div></div>
+    <a href="/blog">Blog</a>
+    <a href="/contato" class="nav-cta">Fale conosco</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">O que fazemos</p>
+    <h1>Serviços que geram<br>resultado <em>real.</em></h1>
+    <p class="hero-sub">Não vendemos pacotes prontos. Cada serviço é estruturado a partir da realidade do seu negócio — porque na contabilidade, não existe receita de bolo.</p>
+  </div>
+
+  <!-- BANNER REFORMA TRIBUTÁRIA -->
+  <div class="reforma-banner">
+    <div class="reforma-inner">
+      <span class="reforma-label">⚠ Atenção</span>
+      <p class="reforma-text"><strong>A Reforma Tributária está em curso.</strong> O cenário tributário brasileiro está mudando. Mais do que nunca, um planejamento atualizado e personalizado faz diferença entre pagar o justo e pagar a mais.</p>
+    </div>
+  </div>
+
+  <!-- EMPRESAS -->
+  <div class="sec-wrap">
+    <p class="sec-label">Para empresas</p>
+
+    <!-- PLANEJAMENTO TRIBUTÁRIO — DESTAQUE -->
+    <div class="card-destaque">
+      <div class="cd-top">
+        <div>
+          <div class="cd-badge">⭐ Nosso principal diferencial</div>
+          <h2 class="cd-title" style="margin-top:0.75rem;">Planejamento <em>Tributário</em></h2>
+        </div>
+      </div>
+      <p class="cd-text">
+        A arma mais eficiente de um bom empreendedor. A época em que arquiteto "só ficava no Lucro Presumido" ou médico tinha "tributação definida" ficou para trás. <strong>Cada empresa tem um comportamento único</strong> — e é exatamente esse comportamento que deve orientar o planejamento.
+      </p>
+      <p class="cd-text" style="margin-top:0.75rem;">
+        Com a Reforma Tributária em andamento, essa mensuração se torna ainda mais crítica. Quem não planejar vai pagar a conta de quem planejou.
+      </p>
+      <a class="cd-cta" href="https://wa.me/5581996876093?text=Olá,%20quero%20fazer%20um%20planejamento%20tributário%20para%20minha%20empresa." target="_blank" rel="noopener">Solicitar planejamento tributário →</a>
+    </div>
+
+    <!-- REGIMES TRIBUTÁRIOS -->
+    <div class="regimes-grid">
+
+      <div class="regime-card">
+        <div class="rc-num">01</div>
+        <p class="rc-nome">Simples Nacional</p>
+        <p class="rc-text">Ainda eficiente para <strong>70% das atividades</strong> — mas de simples não tem nada. O Fator R e as variações de impostos são desafios mensais que exigem acompanhamento constante e olho técnico preciso.</p>
+        <span class="rc-tag">Acompanhamento mensal</span>
+      </div>
+
+      <div class="regime-card">
+        <div class="rc-num">02</div>
+        <p class="rc-nome">Lucro Presumido</p>
+        <p class="rc-text">Chegar até aqui exige cautela. Mas quem entende seu lugar nesse regime ganha algo valioso: <strong>previsibilidade</strong>. Saber de antemão como sua tributação vai se comportar é uma vantagem real de gestão.</p>
+        <span class="rc-tag">Previsibilidade tributária</span>
+      </div>
+
+      <div class="regime-card">
+        <div class="rc-num">03</div>
+        <p class="rc-nome">Lucro Real</p>
+        <p class="rc-text">Uma das melhores opções — mas exige <strong>disciplina do empresário</strong>: extratos organizados, documentação completa e comunicação eficiente. Quem cumpre os pilares pode chegar a uma tributação menor que o próprio Simples Nacional.</p>
+        <span class="rc-tag">Máxima eficiência</span>
+      </div>
+
+    </div>
+
+    <!-- OUTROS SERVIÇOS -->
+    <div style="margin-top: 12px;">
+      <div class="outros-grid">
+
+        <div class="outro-card">
+          <div class="oc-linha"></div>
+          <div class="oc-body">
+            <p class="oc-nome">Recuperação de Créditos Tributários</p>
+            <p class="oc-text">Recuperação de PIS e COFINS no Simples Nacional com entrega de documentação comprobatória — uma marca do nosso escritório. <strong>Exija sempre a documentação</strong> quando se tratar de recuperação de créditos. Sem ela, não há segurança.</p>
+          </div>
+        </div>
+
+        <div class="outro-card">
+          <div class="oc-linha"></div>
+          <div class="oc-body">
+            <p class="oc-nome">Abertura e Encerramento de Empresas</p>
+            <p class="oc-text">Básico e importantíssimo. <strong>Entender o começo de uma empresa define o caminho</strong> que o empresário vai trilhar. Uma empresa que nasce do jeito correto — regime certo, estrutura societária certa — tem muito mais chances de prosperar.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PESSOA FÍSICA -->
+  <div class="pf-section">
+    <div class="pf-inner">
+      <p class="sec-label" style="margin-bottom:0.75rem;">Para pessoas físicas</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:600; margin-bottom:0.5rem;">Cuidamos também de <em style="color:var(--gold);font-style:normal;">você</em>, não só da sua empresa.</h2>
+      <p style="font-size:0.875rem; color:var(--text-muted); font-weight:300; line-height:1.8; max-width:560px;">Profissionais liberais, autônomos e médicos têm necessidades específicas que vão além da pessoa jurídica.</p>
+      <div class="pf-grid">
+
+        <div class="pf-card">
+          <div class="pf-linha"></div>
+          <div class="pf-body">
+            <p class="pf-nome">Declaração de IRPF</p>
+            <p class="pf-text">O preenchimento completo de uma declaração exige mais do que atenção. Exige conhecimento prévio de derivativos e outros investimentos, entendimento de cada perfil profissional e um atendimento <strong>olho no olho</strong> — essa é a nossa marca. Cada encaixe é explicado, não apenas executado.</p>
+          </div>
+        </div>
+
+        <div class="pf-card">
+          <div class="pf-linha"></div>
+          <div class="pf-body">
+            <p class="pf-nome">Livro Caixa</p>
+            <p class="pf-text">Muitas vezes é o Livro Caixa que traz mais eficiência tributária do que o próprio IRPF convencional — e dependendo da área, pode ser mais vantajoso do que o Simples Nacional. <strong>Cooperativas e recebimentos de pessoa física</strong> têm condições de ter despesas operacionais deduzidas, gerando frutos reais para quem conhece essa ferramenta.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPARTAMENTO PESSOAL -->
+  <div class="pf-section" style="border-top: 1px solid var(--border); margin-top: 0;">
+    <div class="pf-inner">
+      <p class="sec-label" style="margin-bottom:0.75rem;">Departamento Pessoal</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:600; margin-bottom:0.5rem;">Gestão de pessoas com <em style="color:var(--gold);font-style:normal;">precisão e compliance.</em></h2>
+      <p style="font-size:0.875rem; color:var(--text-muted); font-weight:300; line-height:1.8; max-width:600px; margin-bottom: 1.5rem;">Erro no departamento pessoal não é só multa — é passivo trabalhista e previdenciário que pode comprometer o futuro da empresa.</p>
+      <div class="pf-grid">
+
+        <div class="pf-card">
+          <div class="pf-linha"></div>
+          <div class="pf-body">
+            <p class="pf-nome">Folha de Pagamento, Admissão e Demissão</p>
+            <p class="pf-text">A folha deve atender a demanda real de cada cliente. Admissões e demissões são sempre acompanhadas de <strong>SST, ASOs e adequação à nova NR1</strong> — sem abrir mão da conformidade que protege empregador e empregado.</p>
+          </div>
+        </div>
+
+        <div class="pf-card">
+          <div class="pf-linha"></div>
+          <div class="pf-body">
+            <p class="pf-nome">eSocial, Reinf e DCTFWeb</p>
+            <p class="pf-text">A tríade que vai além do imposto correto. Feitos de forma errada, <strong>geram problemas futuros</strong> para empregados e empregadores — desde benefícios previdenciários comprometidos até autuações fiscais. Feitos certos, são fonte de informação e segurança jurídica.</p>
+          </div>
+        </div>
+
+        <div class="pf-card">
+          <div class="pf-linha"></div>
+          <div class="pf-body">
+            <p class="pf-nome">FGTS Digital</p>
+            <p class="pf-text">O novo módulo do FGTS Digital trouxe um processo mais facilitado e integrado ao eSocial. <strong>Recolhimento correto e no prazo</strong> — sem complicações para a empresa nem para o trabalhador.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Não sabe qual serviço<br>é o <em>certo para você?</em></h2>
+      <p class="cta-sub">Essa é exatamente a pergunta que a gente responde primeiro. Fale com a nossa equipe e vamos entender a realidade da sua empresa antes de qualquer recomendação.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://wa.me/5581996876093?text=Olá,%20preciso%20de%20ajuda%20para%20entender%20qual%20serviço%20é%20o%20certo%20para%20minha%20empresa." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <a class="btn-ghost" href="/contato">Ver todos os contatos →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 Barros &amp; Barros Contabilidade · Limoeiro, Pernambuco</p>
+  <div class="footer-links">
+    <a href="/">Início</a>
+    <a href="/segmentos">Segmentos</a>
+    <a href="/blog">Blog</a>
+    <a href="/politica-de-privacidade">Privacidade</a>
+    <a href="/contato">Contato</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-dropdown').forEach(function(d){
+  d.querySelector(':scope > a').addEventListener('click',function(e){
+    e.preventDefault();
+    var open=d.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(x){x.classList.remove('open');});
+    if(!open) d.classList.add('open');
+  });
+  document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open');});
+});
+</script>
+
+</body>
+</html>
