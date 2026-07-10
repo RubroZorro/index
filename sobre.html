@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — Barros & Barros Contabilidade</title>
+<meta name="description" content="Conheça a história da Barros & Barros Contabilidade. Mais de 35 anos de trajetória em Pernambuco, nascida da honestidade de um ex-militar e continuada pela visão de seu neto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1B2D6B;
+  --navy-deep: #0e1a3d;
+  --navy-mid: #162259;
+  --gold: #C9A227;
+  --gold-light: #e0b83a;
+  --gold-pale: rgba(201,162,39,0.1);
+  --white: #ffffff;
+  --text-muted: rgba(255,255,255,0.55);
+  --text-light: rgba(255,255,255,0.8);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(201,162,39,0.3);
+  --card-bg: rgba(255,255,255,0.04);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--navy-deep); color: var(--white); overflow-x: hidden; }
+
+/* BG */
+.bg-fixed { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.bg-orb-1 { position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(27,45,107,0.5) 0%, transparent 65%); top: -200px; right: -200px; }
+.bg-orb-2 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,0.05) 0%, transparent 65%); bottom: 30%; left: -150px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(14,26,61,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.logo-mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.bb { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2.4rem; line-height: 1; }
+.bb .b1 { color: var(--gold); }
+.bb .b2 { color: var(--white); }
+.logo-div { width: 1px; height: 38px; background: var(--border-gold); }
+.logo-txt .name { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; line-height: 1.15; }
+.logo-txt .sub { font-size: 0.58rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--border-gold); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+.nav-cta { background: var(--gold) !important; color: var(--navy-deep) !important; font-weight: 500 !important; padding: 9px 20px; border-radius: 4px; }
+.nav-cta:hover { background: var(--gold-light) !important; }
+/* NAV DROPDOWN */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+.nav-dropdown > a::after { content: '▾'; font-size: 0.65rem; transition: transform 0.2s; }
+.nav-dropdown:hover > a::after, .nav-dropdown.open > a::after { transform: rotate(180deg); }
+.dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(14,26,61,0.97); backdrop-filter: blur(20px); border: 1px solid rgba(201,162,39,0.28); border-radius: 10px; padding: 0.4rem; min-width: 210px; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; z-index: 200; }
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-menu a { display: block; padding: 0.55rem 1rem; border-radius: 6px; white-space: nowrap; background: transparent; }
+.dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: var(--white) !important; }
+
+/* PAGE */
+.page { position: relative; z-index: 1; }
+
+/* HERO */
+.hero {
+  padding: 10rem 3rem 6rem;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end;
+}
+.hero-left { animation: fadeUp 0.8s ease 0.1s both; }
+.eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.1; margin-bottom: 1.5rem; }
+h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+.hero-right { animation: fadeUp 0.8s ease 0.25s both; }
+
+/* FOTO PLACEHOLDER */
+.foto-jose {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, rgba(27,45,107,0.8) 0%, rgba(14,26,61,0.9) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; text-align: center; padding: 2rem;
+  position: relative; overflow: hidden;
+}
+.foto-jose::before {
+  content: 'JB';
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12rem; font-weight: 700;
+  color: rgba(201,162,39,0.05);
+  line-height: 1;
+}
+.foto-jose-label { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; position: relative; }
+.foto-jose-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; position: relative; }
+.foto-jose-note { font-size: 0.72rem; color: var(--text-muted); position: relative; font-style: italic; }
+
+/* TIMELINE */
+.timeline-section { padding: 0 3rem 6rem; max-width: 1100px; margin: 0 auto; }
+.timeline-header { margin-bottom: 4rem; }
+.tl-eyebrow { font-size: 0.68rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.75rem; }
+.tl-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 600; line-height: 1.2; }
+.tl-title em { color: var(--gold); font-style: normal; }
+
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(180deg, var(--gold) 0%, rgba(201,162,39,0.1) 100%); }
+
+.tl-item { position: relative; padding: 0 0 4rem 3rem; animation: fadeUp 0.8s ease both; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot { position: absolute; left: -6px; top: 6px; width: 13px; height: 13px; border-radius: 50%; background: var(--navy-deep); border: 2px solid var(--gold); }
+.tl-dot.active { background: var(--gold); box-shadow: 0 0 0 4px rgba(201,162,39,0.15); }
+.tl-year { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.5rem; }
+.tl-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+.tl-text { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.9; max-width: 680px; }
+.tl-text strong { color: var(--text-light); font-weight: 400; }
+.tl-quote {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--gold-pale);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-style: italic;
+  color: var(--text-light); line-height: 1.6;
+  max-width: 600px;
+}
+
+/* EQUIPE */
+.equipe-section {
+  background: linear-gradient(135deg, rgba(201,162,39,0.06) 0%, rgba(27,45,107,0.2) 100%);
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 6rem 3rem;
+}
+.equipe-inner { max-width: 1100px; margin: 0 auto; }
+
+.pessoa-card {
+  background: rgba(14,26,61,0.8);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  max-width: 760px;
+  margin-top: 3rem;
+}
+.pessoa-card:hover { border-color: var(--border-gold); }
+
+.pessoa-foto {
+  border-left: 1px solid var(--border);
+  order: 2;
+}
+.pessoa-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.pessoa-info { padding: 2rem; order: 1; }
+.pessoa-role { font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+.pessoa-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; }
+.pessoa-bio { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+.pessoa-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 0.65rem; letter-spacing: 0.06em; background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; color: var(--text-muted); }
+.tag-gold { border-color: var(--border-gold); color: var(--gold); background: var(--gold-pale); }
+
+/* VALORES */
+.valores-section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+.valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.valor-card { padding: 2rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.2s, background 0.2s; }
+.valor-card:hover { border-color: var(--border-gold); background: var(--gold-pale); }
+.valor-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: rgba(201,162,39,0.2); line-height: 1; margin-bottom: 1rem; }
+.valor-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+.valor-desc { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+
+/* ESTRUTURA */
+.estrutura-section {
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  padding: 5rem 3rem;
+}
+.estrutura-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.estrutura-setores { display: flex; flex-direction: column; gap: 12px; margin-top: 2rem; }
+.setor-item { display: flex; align-items: center; gap: 16px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; transition: border-color 0.2s; }
+.setor-item:hover { border-color: var(--border-gold); }
+.setor-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.setor-nome { font-size: 0.875rem; font-weight: 400; color: var(--text-light); }
+.setor-desc { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; }
+
+.cobertura-lista { margin-top: 2rem; }
+.cobertura-item { display: flex; align-items: center; gap: 12px; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+.cobertura-item:last-child { border-bottom: none; }
+.cob-marker { font-size: 0.7rem; color: var(--gold); }
+.cob-nome { font-size: 0.9rem; color: var(--text-light); }
+.cob-detalhe { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; }
+
+/* CTA */
+.cta-section { padding: 7rem 3rem; text-align: center; background: linear-gradient(180deg, transparent, rgba(201,162,39,0.05)); }
+.cta-inner { max-width: 580px; margin: 0 auto; }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; }
+.cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy-deep); font-size: 0.875rem; font-weight: 500; padding: 15px 28px; border-radius: 4px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text-light); font-size: 0.875rem; padding: 15px 28px; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s; }
+.btn-ghost:hover { border-color: var(--border-gold); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1; }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* ANIMS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 8rem 1.5rem 4rem; gap: 3rem; }
+  .hero-right { order: -1; max-width: 260px; }
+  .foto-jose { aspect-ratio: 1/1; }
+  .timeline-section, .valores-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .equipe-section { padding: 4rem 1.5rem; }
+  .pessoa-card { grid-template-columns: 1fr; max-width: 100%; }
+  .pessoa-foto { order: -1; height: 280px; border-left: none; border-bottom: 1px solid var(--border); }
+  .valores-grid { grid-template-columns: 1fr 1fr; }
+  .estrutura-section { padding: 4rem 1.5rem; }
+  .estrutura-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cta-section { padding: 5rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; }
+}
+@media (max-width: 600px) {
+  .valores-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-fixed">
+  <div class="bg-grid"></div>
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-mark" href="/">
+    <div class="bb"><span class="b1">B</span><span class="b2">B</span></div>
+    <div class="logo-div"></div>
+    <div class="logo-txt">
+      <div class="name">Barros<br>&amp; Barros</div>
+      <div class="sub">Contabilidade</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="/">Início</a>
+    <a href="/sobre" class="active">Sobre</a>
+    <a href="/servicos">Serviços</a>
+    <div class="nav-dropdown"><a href="/segmentos">Segmentos</a><div class="dropdown-menu"><a href="/segmentos/medicos">Médicos e Clínicas</a><a href="/segmentos/advogados">Advogados e OABs</a><a href="/segmentos/cooperativas">Cooperativas</a><a href="/segmentos/arquitetos">Arquitetos</a><a href="/segmentos/comercio">Comércio e Varejo</a><a href="/segmentos/prestadores">Prestadores de Serviço</a></div></div>
+    <a href="/blog">Blog</a>
+    <a href="/curso">Curso IA</a>
+    <a href="/contato" class="nav-cta">Fale conosco</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <p class="eyebrow">Nossa história</p>
+      <h1>Uma calculadora,<br>um birot<br>e um <em>sonho.</em></h1>
+      <p class="hero-sub">Mais de 35 anos de trajetória contábil em Pernambuco — nascida da honestidade de um ex-militar e continuada pela visão de seu neto.</p>
+    </div>
+    <div class="hero-right">
+      <div class="foto-jose">
+        <p class="foto-jose-label">Fundador</p>
+        <p class="foto-jose-name">José de Barros</p>
+        <p class="foto-jose-note">foto a inserir</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-section">
+    <div class="timeline-header">
+      <p class="tl-eyebrow">Uma trajetória de 35 anos</p>
+      <h2 class="tl-title">Do interior de Pernambuco<br>à <em>contabilidade do futuro.</em></h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item" style="animation-delay:0.1s">
+        <div class="tl-dot"></div>
+        <p class="tl-year">Décadas de 1950–1980</p>
+        <h3 class="tl-heading">30 anos servindo ao Brasil</h3>
+        <p class="tl-text">
+          Natural de <strong>Passira–PE</strong>, José de Barros e Silva Neto partiu ainda jovem — aos 18 anos — para o Rio de Janeiro, onde serviu por três décadas à <strong>Marinha do Brasil</strong>. Disciplina, responsabilidade e honestidade foram os valores que carregou de volta para casa.
+        </p>
+      </div>
+
+      <div class="tl-item" style="animation-delay:0.2s">
+        <div class="tl-dot"></div>
+        <p class="tl-year">Final da década de 1980</p>
+        <h3 class="tl-heading">Embaixo de uma escada, um escritório nasceu</h3>
+        <p class="tl-text">
+          Ao final de sua carreira militar, José voltou a <strong>Limoeiro–PE</strong>. Com três filhos, um curso de contabilista recém-concluído e um espaço improvisado embaixo de uma escada, ele começou. Sobre a mesa: uma calculadora e um birot. No peito: um sonho.
+        </p>
+        <div class="tl-quote">
+          "A credibilidade valia mais que qualquer dinheiro — e foi nela que ele investiu."
+        </div>
+        <p class="tl-text" style="margin-top:1rem;">
+          A região passou a depositar confiança em seu conhecimento e honestidade. O <strong>JB Contabilidade</strong> nasceu como referência para o comércio de Limoeiro e Passira — e assim permaneceu por décadas.
+        </p>
+      </div>
+
+      <div class="tl-item" style="animation-delay:0.3s">
+        <div class="tl-dot"></div>
+        <p class="tl-year">2012</p>
+        <h3 class="tl-heading">A segunda geração entra em cena</h3>
+        <p class="tl-text">
+          Com o escritório já consolidado, o neto <strong>Ewerton Barros</strong> — recém-formado em Ciências Contábeis pela <strong>UFPE</strong> — torna-se sócio. Ao lado do avô, Ewerton não apenas deu continuidade ao projeto: transformou-o. Nasceu então a <strong>Barros &amp; Barros Contabilidade</strong>.
+        </p>
+        <p class="tl-text" style="margin-top:1rem;">
+          O experiente e o jovem. A tradição e a renovação. Uma combinação que poucos escritórios têm o privilégio de ter.
+        </p>
+      </div>
+
+      <div class="tl-item" style="animation-delay:0.4s">
+        <div class="tl-dot"></div>
+        <p class="tl-year">2025</p>
+        <h3 class="tl-heading">Tecnologia entra no DNA do escritório</h3>
+        <p class="tl-text">
+          Ewerton conclui sua formação em <strong>Gestão de Tecnologia da Informação pela Cesar School</strong> — uma das escolas de inovação mais reconhecidas do Brasil. Com esse olhar tecnológico, o escritório ganhou uma nova dimensão: setor tecnológico estruturado, automação de processos e uso de inteligência artificial aplicada à contabilidade.
+        </p>
+      </div>
+
+      <div class="tl-item" style="animation-delay:0.5s">
+        <div class="tl-dot active"></div>
+        <p class="tl-year">Hoje</p>
+        <h3 class="tl-heading">35 anos de história. Olhos no futuro.</h3>
+        <p class="tl-text">
+          José de Barros tem hoje <strong>91 anos</strong> — lúcido, inteligente e presente, igual a outrora. Sua história não é apenas o passado do escritório. É a fundação sobre a qual tudo foi construído.
+        </p>
+        <p class="tl-text" style="margin-top:1rem;">
+          A Barros &amp; Barros opera com estrutura própria em Limoeiro — sala de reunião, sala de operação e espaço para crescer — atendendo empresas e pessoas físicas em <strong>Recife, Zona da Mata e Agreste pernambucano</strong>.
+        </p>
+        <div class="tl-quote">
+          "O que não mudou desde o começo: a credibilidade vale mais que qualquer dinheiro."
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LEGADO -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 3rem 5rem;">
+    <div style="background:linear-gradient(135deg,rgba(201,162,39,0.07) 0%,rgba(14,26,61,0.6) 100%); border:1px solid var(--border-gold); border-radius:12px; padding:2.5rem 3rem; display:flex; align-items:center; gap:3rem; flex-wrap:wrap;">
+      <div style="flex-shrink:0; width:80px; height:80px; border-radius:50%; background:var(--gold-pale); border:1px solid var(--border-gold); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:var(--gold);">JB</div>
+      <div style="flex:1; min-width:260px;">
+        <p style="font-size:0.65rem; letter-spacing:0.14em; color:var(--gold); text-transform:uppercase; margin-bottom:6px;">Nosso legado · Fundador</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; margin-bottom:8px;">José de Barros e Silva Neto</p>
+        <p style="font-size:0.85rem; font-weight:300; color:var(--text-muted); line-height:1.8;">Ex-militar da Marinha do Brasil, fundou o JB Contabilidade no final da década de 1980 em Limoeiro–PE. Com 91 anos, é a inspiração e o alicerce sobre o qual a Barros &amp; Barros foi construída. Hoje aposentado, seu legado de credibilidade e honestidade segue vivo em cada atendimento.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EQUIPE -->
+  <div class="equipe-section">
+    <div class="equipe-inner">
+      <p class="tl-eyebrow">Quem cuida da sua empresa</p>
+      <h2 class="tl-title">Nossa <em>equipe</em></h2>
+
+      <div class="pessoa-card">
+        <div class="pessoa-info">
+          <p class="pessoa-role">Sócio e Responsável Técnico</p>
+          <p class="pessoa-nome">Ewerton Barros</p>
+          <p class="pessoa-bio">Contador formado pela UFPE (2012) e especialista em GTI pela Cesar School (2025). Uniu a tradição do avô à tecnologia e inovação, estruturando a Barros &amp; Barros como um escritório moderno e orientado a resultado.</p>
+          <div class="pessoa-tags">
+            <span class="tag-gold tag">Sócio e Resp. Técnico</span>
+            <span class="tag">UFPE · Ciências Contábeis</span>
+            <span class="tag">GTI · Cesar School</span>
+            <span class="tag">Planejamento Tributário</span>
+          </div>
+        </div>
+        <div class="pessoa-foto">
+          <img src="/assets/img/foto_ewerton.jpeg" alt="Ewerton Barros — Sócio e Responsável Técnico da Barros & Barros Contabilidade">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VALORES -->
+  <div class="valores-section">
+    <p class="tl-eyebrow">O que nos move</p>
+    <h2 class="tl-title">Nossos <em>valores</em></h2>
+    <div class="valores-grid">
+      <div class="valor-card">
+        <div class="valor-num">01</div>
+        <p class="valor-nome">Credibilidade</p>
+        <p class="valor-desc">Construída ao longo de mais de 35 anos. Não vendemos promessa — entregamos resultado baseado em análise real de cada caso.</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-num">02</div>
+        <p class="valor-nome">Personalização</p>
+        <p class="valor-desc">Não existe receita de bolo na contabilidade. Cada cliente tem uma realidade única — e merece uma solução única.</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-num">03</div>
+        <p class="valor-nome">Inovação</p>
+        <p class="valor-desc">Tecnologia e IA aplicadas à rotina contábil. Um escritório moderno que combina décadas de experiência com as ferramentas do futuro.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTRUTURA -->
+  <div class="estrutura-section">
+    <div class="estrutura-inner">
+      <div>
+        <p class="tl-eyebrow">Como operamos</p>
+        <h2 class="tl-title" style="font-size:clamp(1.6rem,2.5vw,2.2rem);">Estrutura <em>completa</em> para cuidar da sua empresa</h2>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.8; margin-top:1rem; font-weight:300;">Matriz própria em Limoeiro–PE com sala de reunião, sala de operação e equipe especializada em três frentes.</p>
+        <div class="estrutura-setores">
+          <div class="setor-item">
+            <div class="setor-dot"></div>
+            <span class="setor-nome">Setor Fiscal e Contábil</span>
+            <span class="setor-desc">Core do escritório</span>
+          </div>
+          <div class="setor-item">
+            <div class="setor-dot"></div>
+            <span class="setor-nome">Setor de RH</span>
+            <span class="setor-desc">Folha, admissão, rescisão</span>
+          </div>
+          <div class="setor-item">
+            <div class="setor-dot"></div>
+            <span class="setor-nome">Setor Tecnológico</span>
+            <span class="setor-desc">IA, automação e dados</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="tl-eyebrow" style="margin-bottom:1rem;">Onde atendemos</p>
+        <div class="cobertura-lista">
+          <div class="cobertura-item">
+            <span class="cob-marker">◆</span>
+            <span class="cob-nome">Recife e Região Metropolitana</span>
+            <span class="cob-detalhe">Presencial e remoto</span>
+          </div>
+          <div class="cobertura-item">
+            <span class="cob-marker">◆</span>
+            <span class="cob-nome">Zona da Mata Norte e Sul</span>
+            <span class="cob-detalhe">Limoeiro · Passira · região</span>
+          </div>
+          <div class="cobertura-item">
+            <span class="cob-marker">◆</span>
+            <span class="cob-nome">Agreste Pernambucano</span>
+            <span class="cob-detalhe">Presencial e remoto</span>
+          </div>
+          <div class="cobertura-item">
+            <span class="cob-marker">◆</span>
+            <span class="cob-nome">Todo o Brasil</span>
+            <span class="cob-detalhe">Atendimento remoto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Venha fazer parte<br>dessa <em>história.</em></h2>
+      <p class="cta-sub">35 anos de credibilidade a serviço do seu negócio. Converse com a nossa equipe e descubra o que a Barros &amp; Barros pode fazer pela sua empresa.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://wa.me/5581996876093?text=Olá,%20vim%20pela%20página%20Sobre%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <a class="btn-ghost" href="/contato">Ver todos os contatos →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 Barros &amp; Barros Contabilidade · Limoeiro, Pernambuco</p>
+  <div class="footer-links">
+    <a href="/">Início</a>
+    <a href="/servicos">Serviços</a>
+    <a href="/blog">Blog</a>
+    <a href="/politica-de-privacidade">Privacidade</a>
+    <a href="/contato">Contato</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-dropdown').forEach(function(d){
+  d.querySelector(':scope > a').addEventListener('click',function(e){
+    e.preventDefault();
+    var open=d.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(x){x.classList.remove('open');});
+    if(!open) d.classList.add('open');
+  });
+  document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open');});
+});
+</script>
+
+</body>
+</html>
