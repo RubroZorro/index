@@ -77,7 +77,7 @@ nav {
 .hero {
   padding: 7rem 3rem 4rem;
   max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: center;
+  display: grid; grid-template-columns: 1fr 440px; gap: 4rem; align-items: center;
 }
 .hero-left { animation: fadeUp 0.8s ease 0.1s both; }
 .eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; }
@@ -89,7 +89,7 @@ h1 em { color: var(--gold); font-style: italic; }
 
 /* FOTO FUNDADOR */
 .foto-jose {
-  height: 320px;
+  aspect-ratio: 3/4;
   border: 1px solid var(--border-gold);
   border-radius: 12px;
   position: relative;
@@ -100,12 +100,12 @@ h1 em { color: var(--gold); font-style: italic; }
   object-fit: cover; object-position: center top;
   display: block;
   mask-image:
-    linear-gradient(to bottom, transparent 0%, black 10%, black 86%, transparent 100%),
-    linear-gradient(to right,  transparent 0%, black 8%,  black 92%, transparent 100%);
+    linear-gradient(to bottom, transparent 0%, black 4%, black 92%, transparent 100%),
+    linear-gradient(to right,  transparent 0%, black 4%, black 96%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0%, black 10%, black 86%, transparent 100%),
-    linear-gradient(to right,  transparent 0%, black 8%,  black 92%, transparent 100%);
+    linear-gradient(to bottom, transparent 0%, black 4%, black 92%, transparent 100%),
+    linear-gradient(to right,  transparent 0%, black 4%, black 96%, transparent 100%);
   -webkit-mask-composite: destination-in;
 }
 .foto-jose-overlay {
@@ -383,9 +383,9 @@ footer { border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: fle
 
   <!-- LEGADO -->
   <div style="max-width:1100px; margin:0 auto; padding:0 3rem 5rem;">
-    <div style="background:linear-gradient(135deg,rgba(201,162,39,0.07) 0%,rgba(14,26,61,0.6) 100%); border:1px solid var(--border-gold); border-radius:12px; padding:2.5rem 3rem; display:flex; align-items:center; gap:3rem; flex-wrap:wrap;">
+    <div style="background:linear-gradient(135deg,rgba(201,162,39,0.07) 0%,rgba(14,26,61,0.6) 100%); border:1px solid var(--border-gold); border-radius:12px; padding:2rem 2.5rem; display:flex; align-items:center; gap:2rem; overflow:hidden;">
       <div style="flex-shrink:0; width:160px; height:160px; border-radius:50%; overflow:hidden; border:2px solid var(--border-gold); box-shadow:0 0 0 6px rgba(201,162,39,0.08);"><img src="/assets/img/avo1.jpeg" alt="José de Barros" style="width:100%; height:100%; object-fit:cover; object-position:center top;"></div>
-      <div style="flex:1; min-width:260px;">
+      <div style="flex:1; min-width:0;">
         <p style="font-size:0.65rem; letter-spacing:0.14em; color:var(--gold); text-transform:uppercase; margin-bottom:6px;">Nosso legado · Fundador</p>
         <p style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; margin-bottom:8px;">José de Barros e Silva Neto</p>
         <p style="font-size:0.85rem; font-weight:300; color:var(--text-muted); line-height:1.8;">Ex-militar da Marinha do Brasil, fundou o JB Contabilidade no final da década de 1980 em Limoeiro–PE. Com 91 anos, é a inspiração e o alicerce sobre o qual a Barros &amp; Barros foi construída. Hoje aposentado, seu legado de credibilidade e honestidade segue vivo em cada atendimento.</p>
